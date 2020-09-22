@@ -1,0 +1,27 @@
+{
+    "name": "bosta/bosta-php",
+    "description": "A PHP client SDK for Bosta APIs integration.",
+    "type": "library",
+    "keywords": [
+        "bosta",
+        "bosta-php"
+    ],
+    "homepage": "https://github.com/bostaapp/bosta-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "aliaasayed",
+            "email": "aliaasayed45@gmail.com",
+            "homepage": "https://github.com/aliaasayed",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "bosta\\bosta-php\\": "src"
+        }
+    }
+}
