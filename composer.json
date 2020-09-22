@@ -1,9 +1,9 @@
 {
-    "name": "bosta/bosta-php",
+    "name": "bostaapp/bosta-php",
     "description": "A PHP client SDK for Bosta APIs integration.",
     "type": "library",
     "keywords": [
-        "bosta",
+        "bostaapp",
         "bosta-php"
     ],
     "homepage": "https://github.com/bostaapp/bosta-php",
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "bosta\\bosta-php\\": "src"
+            "bostaapp\\bosta-php\\": "src"
         }
     }
 }
