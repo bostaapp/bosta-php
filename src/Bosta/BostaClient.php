@@ -3,8 +3,9 @@
 declare (strict_types = 1);
 
 namespace Bosta;
-use Bosta\DeliveryClient;
-use Bosta\PickupClient;
+
+use Bosta\Deliveries\DeliveryClient;
+use Bosta\PickupRequests\PickupClient;
 
 class BostaClient
 {
