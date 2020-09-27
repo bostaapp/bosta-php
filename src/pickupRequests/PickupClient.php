@@ -1,6 +1,7 @@
 <?php
 
 declare (strict_types = 1);
+namespace Bosta\PickupClient;
 
 class PickupClient
 {

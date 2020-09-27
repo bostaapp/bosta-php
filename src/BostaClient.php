@@ -1,8 +1,10 @@
 <?php
 
 declare (strict_types = 1);
-include './src/pickupRequests/PickupClient.php';
-include './src/deliveries/DeliveryClient.php';
+
+namespace Bosta;
+use Bosta\DeliveryClient;
+use Bosta\PickupClient;
 
 class BostaClient
 {
