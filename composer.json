@@ -1,10 +1,10 @@
 {
-    "name": "bosta/bosta-php",
+    "name": "bosta/bosta-sdk",
     "description": "A PHP client SDK for Bosta APIs integration.",
     "type": "library",
     "keywords": [
         "bosta",
-        "bosta-php"
+        "bosta-sdk"
     ],
     "homepage": "https://github.com/bostaapp/bosta-php",
     "license": "MIT",
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "bosta\\bosta-php\\": "src"
+            "bosta\\bosta-sdk\\": "src"
         }
     }
 }
