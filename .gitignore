@@ -1,3 +1,8 @@
 build
 composer.lock
 vendor
+phpcs.xml
+phpcs.xml.dist
+phpunit.xml
+phpunit.xml.dist
+.phpunit.result.cache
