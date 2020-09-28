@@ -2,6 +2,7 @@
     "name": "bosta/bosta-sdk",
     "description": "A PHP client SDK for Bosta APIs integration.",
     "type": "library",
+    "version": "1.0.0",
     "keywords": [
         "bosta",
         "bosta-sdk"
