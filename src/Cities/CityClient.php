@@ -20,16 +20,16 @@ class CityClient
     /**
      * List Cities
      *
-     * @return void
+     * @return \stdClass
      */
-    public function list()
+    public function list(): \stdClass
     {
         try {
             $path = 'cities';
             $response = $this->apiClient->send('GET', $path, new \stdClass, '');
 
-            if ($response->success === null || $response->success === true) {
-                return $response;
+            if ($response->success === true) {
+                return $response->data;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }

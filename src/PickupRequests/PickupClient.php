@@ -27,7 +27,7 @@ class PickupClient
      * @param string $businessLocationId
      * @param string $notes
      * @param int $noOfPackages
-     * @return void
+     * @return \stdClass
      */
     public function create(
         string $scheduledDate,
@@ -36,7 +36,7 @@ class PickupClient
         string $businessLocationId,
         string $notes,
         int $noOfPackages
-    ) {
+    ): \stdClass {
         try {
             $path = 'pickups';
             $body = new \stdClass;
@@ -57,13 +57,11 @@ class PickupClient
             if ($noOfPackages) {
                 $body->noOfPackages = $noOfPackages;
             }
+
             $response = $this->apiClient->send('POST', $path, $body, '');
-            if ($response->success === null || $response->success === true) {
-                if ($response->data) {
-                    return $response->data;
-                } elseif ($response->message) {
-                    return  $response->message;
-                }
+            
+            if ($response->success === true) {
+                return $response->data;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }
@@ -82,7 +80,7 @@ class PickupClient
      * @param string $businessLocationId
      * @param string $notes
      * @param int $noOfPackages
-     * @return void
+     * @return string
      */
     public function update(
         string $pickupRequestId,
@@ -92,7 +90,7 @@ class PickupClient
         string $businessLocationId,
         string $notes,
         int $noOfPackages
-    ) {
+    ): string {
         try {
             $path = 'pickups/'.$pickupRequestId;
             $body = new \stdClass;
@@ -113,14 +111,11 @@ class PickupClient
             if ($noOfPackages) {
                 $body->noOfPackages = $noOfPackages;
             }
+
             $response = $this->apiClient->send('PUT', $path, $body, '');
-            var_dump($response);
-            if ($response->success === null || $response->success === true) {
-                if ($response->data) {
-                    return $response->data;
-                } elseif ($response->message) {
-                    return  $response->message;
-                }
+
+            if ($response->success === true) {
+                return $response->data ? $response->data : $response->message;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }
@@ -133,19 +128,16 @@ class PickupClient
      * Delete Pickup Request
      *
      * @param string $pickupRequestId
-     * @return void
+     * @return string
      */
-    public function delete(string $pickupRequestId)
+    public function delete(string $pickupRequestId): string
     {
         try {
             $path = 'pickups/' . $pickupRequestId;
             $response = $this->apiClient->send('DELETE', $path, new \stdClass, '');
-            if ($response->success === null || $response->success === true) {
-                if ($response->data) {
-                    return $response->data;
-                } elseif ($response->message) {
-                    return  $response->message;
-                }
+
+            if ($response->success === true) {
+                return $response->data ? $response->data : $response->message;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }
@@ -155,18 +147,19 @@ class PickupClient
     }
 
     /**
-     * List Pickup Request
-     *
-     * @param int $pageId
-     * @return void
-     */
-    public function list(int $pageId = 0)
+    * List Pickup Request
+    *
+    * @param int $pageId
+    * @return \stdClass
+    */
+    public function list(int $pageId = 0): \stdClass
     {
         try {
             $path = 'pickups?pageId=' . $pageId;
             $response = $this->apiClient->send('GET', $path, new \stdClass, '');
-            if ($response->success === null || $response->success === true) {
-                return $response;
+
+            if ($response->success === true) {
+                return $response->data;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }
@@ -176,22 +169,19 @@ class PickupClient
     }
 
     /**
-     * Get Pickup Request
-     *
-     * @param string $pickupRequestId
-     * @return void
-     */
-    public function get(string $pickupRequestId)
+    * Get Pickup Request
+    *
+    * @param string $pickupRequestId
+    * @return \stdClass
+    */
+    public function get(string $pickupRequestId): \stdClass
     {
         try {
             $path = 'pickups/' . $pickupRequestId;
             $response = $this->apiClient->send('GET', $path, new \stdClass, '');
-            if ($response->success === null || $response->success === true) {
-                if ($response->data) {
-                    return $response->data;
-                } elseif ($response->message) {
-                    return  $response->message;
-                }
+
+            if ($response->success === true) {
+                return $response->data;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }

@@ -21,16 +21,16 @@ class ZoneClient
      * List Zones of the City
      *
      * @param string $cityId
-     * @return void
+     * @return \stdClass
      */
-    public function list(string $cityId)
+    public function list(string $cityId): \stdClass
     {
         try {
             $path = 'cities/'.$cityId.'/zones';
             $response = $this->apiClient->send('GET', $path, new \stdClass, '');
 
-            if ($response->success === null || $response->success === true) {
-                return $response;
+            if ($response->success === true) {
+                return $response->data;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }
