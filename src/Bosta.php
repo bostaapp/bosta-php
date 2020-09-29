@@ -54,13 +54,11 @@ class Bosta
             array(
             "Content-Type: application/json",
             'authorization:' . $this->API_KEY,
-            'X-REQUESTED-BY: php-sdk',
+            'X-Requested-By: php-sdk',
             )
         );
         $response = curl_exec($curl);
         curl_close($curl);
-        // echo "---------------------".$response;
-        var_dump($response);
         return json_decode($response);
     }
 }
