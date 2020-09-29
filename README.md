@@ -1,90 +1,24 @@
-# bosta-php
+# Bosta PHP SDK
 
-This repository contains A PHP SDK for Bosta APIs integration.
+This repository contains the open source PHP SDK for integrating Bosta's APIs into your PHP application.
 
 ## Table of Contents
 
-- [Integration Scope](#integration-scope)
-  - [Pickups](#pickups-scope)
-  - [Deliveries](#deliveries-scope)
-- [Classes](#classes)
-  - [Common Classes](#common-classes)
-- [API Documentation](#api-documentation)
+- [APIs Documentation](#apis-documentation)
 - [Installation](#installation)
 - [Usages](#usages)
 - [Contribution](#contribution)
-- [License](#license)
+- [License](#license)`
 
-## Integration Scope
+## APIs Documentation
 
-### Pickups Scope
-
-- Create pickup
-  - Endpoint: `POST /api/v1/pickups`.
-  - Release version: `v1.0.0`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Pickup%20Requests/post_pickups).
-- Update pickup
-  - Endpoint: `PUT /api/v1/pickups/{id}`.
-  - Release version: `v1.0.0`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Pickup%20Requests/put_pickups__id_).
-- Delete pickup
-  - Endpoint: `DELETE /api/v1/pickups/{id}`.
-  - Release version: `v1.0.0`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Pickup%20Requests/delete_pickups__id_).
-- Get pickup details
-  - Endpoint: `GET /api/v1/pickups/{id}`.
-  - Release version: `v1.0.0`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Pickup%20Requests/get_pickups__id_).
-- List pickups
-  - Endpoint: `GET /api/v1/pickups`.
-  - Release version: `v1.0.0`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Pickup%20Requests/get_pickups).
-
-### Deliveries Scope
-
-- Create delivery
-  - Endpoint: `POST /api/v1/deliveries`.
-  - Release version: `v1.0.0`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Deliveries/post_deliveries).
-- Update delivery
-  - Endpoint: `PATCH /api/v1/deliveries/{id}`.
-  - Release version: `v1.0.0`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Deliveries/patch_deliveries__id_).
-- Terminate delivery
-  - Endpoint: `DELETE /api/v1/deliveries/{id}`.
-  - Release version: `v1.0.0`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Deliveries/delete_deliveries__id_).
-- Get delivery details
-  - Endpoint: `GET /api/v1/deliveries/{id}`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Deliveries/get_deliveries__id_).
-  - Release version: `v1.0.0`.
-- Print AWB
-  - Endpoint: `GET /api/v1/deliveries/awb/{id}`.
-  - Release version: `v1.0.0`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Deliveries/get_deliveries_awb__id_).
-- Track delivery
-  - Endpoint: `GET /api/v1/deliveries/track/{id}`.
-  - Release version: `v1.0.0`.
-  - Swagger Doc: NIY.
-- List deliveries
-  - Endpoint: `GET /api/v1/deliveries`.
-  - Release version: `v1.0.0`.
-  - [Swagger Doc](https://app.bosta.co/docs/#/Deliveries/get_deliveries).
-
-## Classes
-
-### Common Classes
-
-- `Bosta`
-- `DropOffAddress`
-- `ContactPerson`
-- `Receiver`
-
-## API Documentation
-- [Staging](https://stg-app.bosta.co/docs).
-- [Production](https://app.bosta.co/docs).
+- [Staging](https://stg-app.bosta.co/docs) APIs swagger documentation.
+- [Production](https://app.bosta.co/docs) APIs swagger documentation.
 
 ## Installation
+
+You can install the package via [Composer](https://getcomposer.org/). Run the following command:
+
 ``` bash
 $ composer require bosta/bosta-sdk
 ```
@@ -192,10 +126,12 @@ $ composer require bosta/bosta-sdk
     ```
 
 ## Contribution
+
 We are open to, and grateful for, any contributions made by the community.
 By contributing to Bosta, you agree to abide by the code of conduct.
-- [CONTRIBUTING](CONTRIBUTING.md) 
-- [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md)
+- [Contributing Guide](CONTRIBUTING.md) 
+- [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ## License
+
 The MIT License (MIT) [License](LICENSE).
