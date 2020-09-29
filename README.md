@@ -8,7 +8,7 @@ This repository contains the open source PHP SDK for integrating Bosta's APIs in
 - [Installation](#installation)
 - [Usages](#usages)
 - [Contribution](#contribution)
-- [License](#license)`
+- [License](#license)
 
 ## APIs Documentation
 
