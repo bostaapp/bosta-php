@@ -4,7 +4,16 @@ We are open to, and grateful for, any contributions made by the community. By co
 
 ### Code Style
 
-Please follow the [PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
+- Please follow the [PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
+- To check style linting run this command:
+    ```bash
+    php vendor/bin/phpcs --standard=psr2 src/ -n
+    ```
+
+- To fix style linting run this command: 
+    ```bash
+    php vendor/bin/phpcbf --standard=psr2 src/ -n
+    ```
 
 ### Commit Messages
 
