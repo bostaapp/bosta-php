@@ -27,7 +27,7 @@ class DeliveryClient
      * @param \Bosta\Utils\Receiver $receiver
      * @param string $notes
      * @param int $cod
-     * @return void
+     * @return \stdClass
      */
     public function create(
         int $type,
@@ -35,7 +35,7 @@ class DeliveryClient
         Receiver $receiver,
         string $notes,
         int $cod
-    ) {
+    ): \stdClass {
         try {
             $path = 'deliveries';
 
@@ -52,14 +52,8 @@ class DeliveryClient
             
             $response = $this->apiClient->send('POST', $path, $body, '');
 
-            if ($response->success === null || $response->success === true) {
-                if ($response->data) {
-                    return $response->data;
-                } elseif ($response->message) {
-                    return  $response->message;
-                } elseif ($response->result) {
-                    return  $response->result;
-                }
+            if ($response->success === true) {
+                return $response->data;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }
@@ -76,7 +70,7 @@ class DeliveryClient
      * @param \Bosta\Utils\Receiver $receiver
      * @param string $notes
      * @param int $cod
-     * @return void
+     * @return string
      */
     public function update(
         string $deliveryId,
@@ -84,7 +78,7 @@ class DeliveryClient
         Receiver $receiver,
         string $notes,
         int $cod
-    ) {
+    ): string {
         try {
             $path = 'deliveries/' . $deliveryId;
 
@@ -100,14 +94,8 @@ class DeliveryClient
 
             $response = $this->apiClient->send('PUT', $path, $body, '');
 
-            if ($response->success === null || $response->success === true) {
-                if ($response->data) {
-                    return $response->data;
-                } elseif ($response->message) {
-                    return  $response->message;
-                } elseif ($response->result) {
-                    return  $response->result;
-                }
+            if ($response->success === true) {
+                return $response->message;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }
@@ -128,14 +116,8 @@ class DeliveryClient
             $path = 'deliveries/' . $deliveryId;
             $response = $this->apiClient->send('DELETE', $path, new \stdClass, '');
 
-            if ($response->success === null || $response->success === true) {
-                if ($response->data) {
-                    return $response->data;
-                } elseif ($response->message) {
-                    return  $response->message;
-                } elseif ($response->result) {
-                    return  $response->result;
-                }
+            if ($response->success === true) {
+                return $response->message;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }
@@ -149,16 +131,16 @@ class DeliveryClient
      *
      * @param int $pageNumber
      * @param int $pageLimit
-     * @return void
+     * @return \stdClass
      */
-    public function list(int $pageNumber = 0, int $pageLimit = 50)
+    public function list(int $pageNumber = 0, int $pageLimit = 50): \stdClass
     {
         try {
             $path = 'deliveries?pageNumber=' . $pageNumber . '&pageLimit=' . $pageLimit;
             $response = $this->apiClient->send('GET', $path, new \stdClass, '');
 
-            if ($response->success === null || $response->success === true) {
-                return $response;
+            if ($response->success === true) {
+                return $response->data;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }
@@ -171,22 +153,16 @@ class DeliveryClient
      * get Delivery
      *
      * @param string $deliveryId
-     * @return void
+     * @return \stdClass
      */
-    public function get(string $deliveryId)
+    public function get(string $deliveryId): \stdClass
     {
         try {
             $path = 'deliveries/' . $deliveryId;
             $response = $this->apiClient->send('GET', $path, new \stdClass, '');
 
-            if ($response->success === null || $response->success === true) {
-                if ($response->data) {
-                    return $response->data;
-                } elseif ($response->message) {
-                    return  $response->message;
-                } elseif ($response->result) {
-                    return  $response->result;
-                }
+            if ($response->success === true) {
+                return $response->data;
             } elseif ($response->success === false) {
                 throw new \Exception($response->message);
             }

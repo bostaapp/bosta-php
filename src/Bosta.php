@@ -19,7 +19,7 @@ class Bosta
      */
     public function __construct(string $API_KEY, string $BASE_URL = 'https://app.bosta.co')
     {
-        $this->BASE_URL = $BASE_URL . '/api/v0/';
+        $this->BASE_URL = $BASE_URL . '/api/v1/';
         $this->API_KEY = $API_KEY;
         $this->pickup = new PickupClient($this);
         $this->delivery = new DeliveryClient($this);
@@ -43,7 +43,7 @@ class Bosta
         if ($method == 'DELETE') {
             curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
         }
-        if ($method == 'POST' || $method == 'PUT') {
+        if ($method === 'POST' || $method === 'PUT') {
             curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
             curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($body));
         }
@@ -59,6 +59,7 @@ class Bosta
         );
         $response = curl_exec($curl);
         curl_close($curl);
+        // echo "---------------------".$response;
         var_dump($response);
         return json_decode($response);
     }
