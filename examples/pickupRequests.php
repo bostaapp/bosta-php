@@ -61,7 +61,7 @@ try {
 }
 
 /**
- * Update pickup request
+ * Update pickup with id=070000000386
  */
 try {
     $update = $bosta->pickup->update('070000000386', '2020-09-29', '10:00 to 13:00', $contactPerson, 'SkIvXQn_a', '', 0);
