@@ -8,6 +8,7 @@ use Bosta\Zones\ZoneClient;
 use Bosta\Cities\CityClient;
 use Bosta\Deliveries\DeliveryClient;
 use Bosta\PickupRequests\PickupClient;
+use Bosta\PickupLocations\PickupLocationClient;
 
 class Bosta
 {
@@ -22,6 +23,7 @@ class Bosta
         $this->BASE_URL = $BASE_URL . '/api/v1/';
         $this->API_KEY = $API_KEY;
         $this->pickup = new PickupClient($this);
+        $this->pickupLocation = new PickupLocationClient($this);
         $this->delivery = new DeliveryClient($this);
         $this->city = new CityClient($this);
         $this->zone = new ZoneClient($this);
